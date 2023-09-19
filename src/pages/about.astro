@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 const pageTitle = 'About Me';
 
 const skills = ['HTML', 'JavaScript', 'TypeScript', 'React', 'Astro', 'SvelteKit'];
@@ -13,6 +14,9 @@ const identity = {
 const happy = true;
 const finished = false;
 const goal = 3;
+const skillColor = "green";
+const fontWeight = '900';
+const textCase = 'uppercase'
 ---
 
 <html lang="en">
@@ -22,8 +26,25 @@ const goal = 3;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+
+      .skill {
+      color: var(--skillColor);
+        text-transform: var(--textCase);
+        font-weight: var(--fontWeight);
+      }
+
+    </style>
   </head>
   <body>
+     <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/blog/">Blog</a>
+    <h1>{pageTitle}</h1>
    <p>Here are a few facts about me:</p>
 <ul>
   <li>My name is {identity.firstName}.</li>
@@ -34,7 +55,7 @@ const goal = 3;
 </ul>
 <p>My skills are:</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
 {happy && <p>I am happy to be learning astro!</p>}
 {finished && <p>I finished this tutorial</p>}
