@@ -58,3 +58,8 @@ a:focus {
     display: none;
   }
 }
+
+* {
+  background-color: #2a243e;
+  color: white;
+}
